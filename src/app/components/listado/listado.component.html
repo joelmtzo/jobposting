@@ -1,0 +1,91 @@
+<div style="background-color: #f2f5f8;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-xl-12 offset-xl-0 text-center" style="padding: 40px;"><label for="busqueda"
+                    style="margin-right: 20px;">Criterios de búsqueda&nbsp;</label><input class="form-control-sm"
+                    type="text" name="busqueda" value="desarrollador web" style="width: 320px;"><button
+                    class="btn btn-primary" type="button" style="margin-left: 15px;">Buscar</button></div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 col-xl-4">
+                <h4 style="margin-bottom: 15px;">Filtros</h4>
+                <div>
+                    <ul class="list-group">
+                        <li class="list-group-item"><span>Quéretaro</span><i class="fa fa-remove float-right"
+                                style="color: rgb(192,0,0);font-size: 18px;"></i></li>
+                        <li class="list-group-item"><span>Ultimos 3 dias</span><i class="fa fa-remove float-right"
+                                style="color: rgb(192,0,0);font-size: 18px;"></i></li>
+                        <li class="list-group-item"><span>Tecnologias de la Informacion</span><i
+                                class="fa fa-remove float-right" style="color: rgb(192,0,0);font-size: 18px;"></i></li>
+                    </ul>
+                    <div>
+                        <h4 style="margin-top: 15px;margin-bottom: 15px;">Estado</h4>
+                        <select class="custom-select">
+                            <option value="">Selecciona una opción</option>
+                            <option *ngFor="let e of estados" value="{{e.idestado}}"> {{e.nombre}} </option>
+                        </select>
+                        <h4 style="margin-top: 15px;margin-bottom: 15px;">Categoria</h4>
+                        <select class="custom-select">
+                            <option value="">Selecciona una opción</option>
+                            <option *ngFor="let c of categorias" value="{{c.idcategoria}}">{{c.nombre}}</option>
+                        </select>
+                        <h4 style="margin-top: 15px;margin-bottom: 15px;">Fecha de publicacion</h4>
+                        <ul class="list-group">
+                            <li class="list-group-item"><span>Ultimos 30 dias</span></li>
+                            <li class="list-group-item"><span>Hace 3 dias</span></li>
+                            <li class="list-group-item"><span>Ultimos 7 dias</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8 col-xl-8">
+                <h4>Resultados de búsqueda</h4>
+                <div class="card" *ngFor="let v of vacantes" style="margin-bottom: 24px;">
+                    <div class="card-body" style="margin-bottom: 0;">
+                        <h5 class="card-title">Oferta laboral 1 <span class="float-right">{{ v.salario | currency }}
+                                {{ v.periodoSalario | lowercase }}</span></h5>
+                        <h6 class="text-muted card-subtitle mb-2">{{ v.publicanteId.nombre }} -
+                            {{ v.municipioId.estadoId.nombre }}, {{ v.municipioId.nombre }}</h6>
+                        <p class="card-text">
+                            {{ v.descripcion }}
+                        </p>
+                        <a class="card-link" href="#" style="font-size: 14px;">
+                            Fecha de publicación: {{ v.fechaPublicacion | date: 'dd MMM yyyy' }}
+                        </a>
+                    </div>
+                </div>
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination">
+
+                        <li class="page-item">
+                            <a class="page-link" 
+                            (click)="cambiarPagina(pagination.prev.href)">Anterior</a>
+                        </li>
+
+                        <li class="page-item">
+                            <a class="page-link" 
+                            *ngIf="pagination.prev"
+                            (click)="cambiarPagina(pagination.prev.href)"> {{ (page + 1) - 1 }} </a>
+                        </li>
+                        <li class="page-item active">
+                            <a class="page-link" 
+                            (click)="cambiarPagina(pagination.self.href)"> {{ (page + 1) }} </a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" 
+                            *ngIf="pagination.next"
+                            (click)="cambiarPagina(pagination.next.href)"> {{ (page + 1) + 1 }} </a>
+                        </li>
+
+                        <li class="page-item">
+                            <a class="page-link" 
+                            (click)="cambiarPagina(pagination.next.href)">Siguiente</a>
+                        </li>
+
+                    </ul>
+                    <span></span>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
