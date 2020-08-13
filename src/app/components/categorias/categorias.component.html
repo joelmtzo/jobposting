@@ -1,0 +1,5 @@
+<h4 style="margin-top: 15px;margin-bottom: 15px;">Categoria</h4>
+<select class="custom-select">
+  <option value="">Selecciona una opción</option>
+  <option *ngFor="let c of categorias" value="{{c.idcategoria}}">{{c.nombre}}</option>
+</select>

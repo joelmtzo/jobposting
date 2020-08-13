@@ -1,0 +1,29 @@
+<div>
+  <div class="container">
+      <div class="row">
+          <div class="col-md-12 col-xl-6 offset-xl-3">
+              <div class="card" style="margin-bottom: 20px;">
+                  <div class="card-body text-center">
+                      <h4 class="card-title" style="margin-bottom: 32px;">Iniciar sesión</h4>
+                      <form [formGroup]="form" #f="ngForm" (ngSubmit)="signIn(f.value)" class="form-inline d-inline">
+                          <div class="col-xl-8 offset-xl-2">
+                              <div class="input-group" style="margin: 10px;">
+                                  <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-user-circle-o"></i></span></div>
+                                  <input formControlName="email" [class.is-valid]="email.valid" class="form-control" type="text" placeholder="Usuario">
+                              </div>
+                              
+                              <div class="input-group" style="margin: 10px;">
+                                  <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-asterisk"></i></span></div>
+                                  <input formControlName="password" [class.is-valid]="password.valid" class="form-control" type="password" placeholder="Contraseña">
+                              </div>
+                          </div>
+                          <button class="btn btn-primary" type="submit" style="width: 120px;margin: 20px;">Login</button>
+                      </form>
+                      <hr>
+                      <p style="margin-top: 0;">¿Olvidaste tu contraseña? Recupera tu cuenta aquí.</p>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

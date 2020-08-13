@@ -1,0 +1,58 @@
+<div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-lg-8 col-xl-6 offset-lg-2 offset-xl-3">
+        <div class="card" style="margin-bottom: 20px;">
+          <div class="card-body text-center">
+            <h4 class="card-title" style="margin-bottom: 32px;">Formulario de registro</h4>
+            <p>Proporciona la siguiente información para crear tu perfil y poder postularte a las vacantes que sean de
+              tu interés.</p>
+            <form [formGroup]="form" #f="ngForm" (ngSubmit)="signUp(f.value)" class="form-inline d-inline">
+              <div class="col-lg-10 col-xl-10 offset-lg-1 offset-xl-1">
+                <div class="input-group" style="margin: 10px;">
+                  <div class="input-group-prepend"> <span class="input-group-text"><i class="fa fa-user-o"></i></span>
+                  </div>
+                  <input formControlName="nombre" [class.is-valid]="nombre.valid" class="form-control" type="text"
+                    placeholder="Nombre(s)">
+                </div>
+                <div class="input-group" style="margin: 10px;">
+                  <div class="input-group-prepend"> <span class="input-group-text"><i class="fa fa-user-o"></i></span>
+                  </div>
+                  <input formControlName="apellidos" [class.is-valid]="apellidos.valid" class="form-control" type="text"
+                    placeholder="Apellidos">
+                </div>
+                <div class="input-group" style="margin: 10px;">
+                  <div class="input-group-prepend"> <span class="input-group-text"><i class="fa fa-at"></i></span>
+                  </div>
+                  <input formControlName="email" [class.is-valid]="email.valid" class="form-control" type="text"
+                    placeholder="Correo electrónico">
+                </div>
+                <div class="input-group" style="margin: 10px;">
+                  <div class="input-group-prepend"> <span class="input-group-text"><i class="fa fa-asterisk"></i></span>
+                  </div>
+                  <input formControlName="password" [class.is-valid]="password.valid" class="form-control"
+                    type="password" placeholder="Contraseña">
+                </div>
+                <div class="input-group" style="margin: 10px;">
+                  <div class="input-group-prepend"> <span class="input-group-text"><i class="fa fa-asterisk"></i></span>
+                  </div>
+                  <input formControlName="cpassword" [class.is-valid]="cpassword.valid" class="form-control"
+                    type="password" placeholder="Confirmar contraseña">
+                </div>
+              </div>
+
+              <hr>
+              <p style="margin-top: 0;">
+                <input type="checkbox">&nbsp; &nbsp;Aceptar Terminos y Condiciones
+              </p>
+              <button [disabled]="form.invalid" class="btn btn-primary" type="submit"
+                style="width: 120px;margin: 20px;">
+                Registrarme
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
