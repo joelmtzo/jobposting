@@ -9,14 +9,14 @@ import { environment } from 'src/environments/environment';
 })
 export class PerfilComponent implements OnInit {
 
-/*   candidato: Candidato = [];
+  /* candidato: Candidato = []; */
 
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
-    this.http.get(environment.apiUrl + 'buscarCandidato', { observe: 'response' })
-      .subscribe(response => this.candidato = response.body);
+    /* this.http.get(environment.apiUrl + 'buscarCandidato', { observe: 'response' })
+      .subscribe(response => this.candidato = response.body); */
 
-  } */
+  }
 
 }

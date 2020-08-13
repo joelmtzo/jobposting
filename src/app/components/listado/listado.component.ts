@@ -8,10 +8,8 @@ import { ListadoService } from "../../services/listado.service";
 })
 export class ListadoComponent implements OnInit {
   vacantes = [];
-
   pagination = [];
   page = 0;
-  size = 10;
 
   constructor(private svcListado: ListadoService) {}
 
@@ -29,8 +27,9 @@ export class ListadoComponent implements OnInit {
   }
 
   cambiarPagina(link) {
-    this.svcListado.getListadoWithPagination(link).subscribe((response) => {
-      this.cargarVacantesPaginacion(response);
-    });
+    this.svcListado.getListadoWithPagination(link)
+      .subscribe((response) => {
+        this.cargarVacantesPaginacion(response);
+      });
   }
 }
